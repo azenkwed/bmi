@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 float eibmi (float *, float *); /* Imperial English BMI */
 float mbmi (float *, float *);  /* Metri BMI */
@@ -7,17 +8,23 @@ int
 main (int argc, char **argv)
 {
 
+  bool metrics = true;
   float bmi = 0.0;
   short age = 0;
   short height = 0;
 
+  printf ("Do you want use the Imperial or the Metric system to input data?\n"
+          "1. Imperial English\n"
+          "2. Metrics [Default]\n");
+
   /* ask user for age */
-  printf ("Waht is your age?\n");
+  printf ("What is your age?\n");
+  
 
   /* ask user for heigh in cm */
-  printf ("What is your heigh? (cm)\n");
+  printf ("What is your heigh?\n");
 
-  printf ("You Body mass Index is %f", bmi);
+  printf ("You Body mass Index is %f\n", bmi);
 
   printf ("This is considered overweight. Time to hit the gym\n");
 
