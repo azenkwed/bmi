@@ -1,28 +1,53 @@
 #include <stdio.h>
-#include <stdbool.h>
 
-float eibmi (float *, float *); /* Imperial English BMI */
-float mbmi (float *, float *);  /* Metri BMI */
+typedef int bool_t;
+
+float eibmi (float , float ); /* Imperial English BMI */
+float mbmi (float , float );  /* Metri BMI */
 
 int
-main (int argc, char **argv)
+main ()
 {
 
-  bool metrics = true;
+  bool_t metrics = 0;
   float bmi = 0.0;
   short age = 0;
+  short weight = 0;
   short height = 0;
 
-  printf ("Do you want use the Imperial or the Metric system to input data?\n"
+  // char *buffer = NULL;
+  
+START: printf ("Do you want use the Imperial or the Metric system to input data?\n"
           "1. Imperial English\n"
-          "2. Metrics [Default]\n");
-
+          "2. Metrics [Default]\n>");
+  scanf ("%d", &metrics);
+  
   /* ask user for age */
   printf ("What is your age?\n");
+  scanf ("%hi", &age);
   
+  /* ask user for height */
+  printf ("How tall are you?\n");
+  scanf ("%hi", &height);
 
   /* ask user for heigh in cm */
   printf ("What is your heigh?\n");
+  scanf ("%hi", &height);
+	
+  /* perform calculation */
+  if (metrics == 1)
+    {
+      eibmi ((float)weight, (float)height);
+    }
+  else if (metrics == 2 || metrics == 0x0A)
+    {
+      mbmi ((float)weight, (float)height);
+    }
+  else
+    {
+      printf ("invalid choice: choose 1 or 2\n");
+      goto START;
+    }
 
   printf ("You Body mass Index is %f\n", bmi);
 
@@ -36,9 +61,10 @@ main (int argc, char **argv)
  * weight (lbs) * 703 / height(in^2)
  */
 float
-eibmi (float *weight, float *height)
+eibmi (float weight, float height)
 {
-  return (*weight * (float)703) / (*height * *height);
+
+  return (weight * (float)703) / (height * height);
 }
 
 /*
@@ -46,7 +72,7 @@ eibmi (float *weight, float *height)
  * weight (kg) / height (m^2)
  */
 float
-mbmi (float *weight, float *height)
+mbmi (float weight, float height)
 {
-  return (*weight / (*height * *height));
+  return (weight / (height * height));
 }
