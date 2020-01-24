@@ -8,15 +8,15 @@ CFLAGS += -Werror -Wextra -pedantic -std=c99
 OBJS = $(wildcard *.o)
 SRCS = $(wildcard *.c)
 LIBS = 
-INCI =
+INCS =
 
 .PHONY: all clean print
 
-.o.c: 
+.o.c: $(SRCS) 
 	$(CC) $(CFLAGS) -c $<
 
-$(APP): $(OBJS) 
-	$(CC) $(FLAGS) $< -o $@
+$(APP): $(SRCS) 
+	$(CC) $(CFLAGS) $< -o $@
 
 clean:
 	@rm -rvf $(OBJS)
