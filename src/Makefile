@@ -3,7 +3,7 @@ APP:= bmi-cli
 CC = gcc
 DEBUG = -g
 CFLAGS = -Wall -O2
-CFLAGS += -Werror -Wextra -pedantic -std=c99
+CFLAGS += -Werror -Wextra -pedantic -std=c11
 
 OBJS = $(wildcard *.o)
 SRCS = $(wildcard *.c)
