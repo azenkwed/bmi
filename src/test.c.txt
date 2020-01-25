@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+float iebmi (float, float);
+float mbmi (float, float);
+
+int
+main ()
+{
+
+  float bmi = 0;
+  bmi = mbmi (75, 166);
+  printf ("metric BMI = %.2f\n", bmi);
+
+  bmi = iebmi (165, 5.5);
+  printf ("Imperial BMI = %.2f\n", bmi);
+
+  return 0;
+}
+
+/*
+ * Imperial English BMI Formula
+ * BMI = weight (lbs) * 703 / height(in^2)
+ */
+float
+iebmi (float weight, float height)
+{
+  float imp_result = (weight * 703) / (height * height * 144);
+  return imp_result;
+}
+
+/*
+ * Metric BMI Formula
+ * BMI = weight (kg) / height (m^2)
+ */
+float
+mbmi (float weight, float height)
+{
+  float metrics_result = (weight / ((height / 100) * (height / 100)));
+  return metrics_result;
+}

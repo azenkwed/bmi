@@ -2,8 +2,8 @@ NAME := bmi-cli
 
 CC = gcc
 DEBUG = -g
-CFLAGS = -Wall -O2
-CFLAGS += -Werror -Wextra -pedantic -std=c11
+# CFLAGS = -Wall -O2
+# CFLAGS += -Werror -Wextra -pedantic -std=c11
 
 SRCS = $(wildcard *.c)
 OBJS = $(wildcard *.o)
